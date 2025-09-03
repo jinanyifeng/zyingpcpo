@@ -1,0 +1,55 @@
+name: Download and Customize PAC File
+
+on:
+  workflow_dispatch: # 允许手动触发
+  schedule:
+    - cron: '0 0 * * 0' # 每周日自动更新一次
+  push:
+    paths:
+      - '.github/workflows/update-pac.yml' # 工作流自身更改时触发
+
+jobs:
+  pac-updater:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # 获取完整历史记录
+
+      - name: Download source PAC file
+        run: |
+          curl -s -o whitelist.pac https://raw.githubusercontent.com/Kaciras/pac-maker/master/dist/whitelist.pac
+          echo "Downloaded PAC file successfully"
+
+      - name: Modify proxy configuration
+        run: |
+          # 替换代理配置
+          sed -i 's|SOCKS5 localhost:2080|SOCKS5 192.168.116.63:10808|g' whitelist.pac
+          
+          # 验证修改是否成功
+          if grep -q "192.168.116.63:10808" whitelist.pac; then
+            echo "Proxy configuration updated successfully"
+          else
+            echo "Failed to update proxy configuration"
+            exit 1
+          fi
+
+      - name: Force commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 添加时间戳到文件末尾以确保每次都有变化
+          echo "// Last updated: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> whitelist.pac
+          
+          git add whitelist.pac
+          git commit -m "Auto-update: PAC file refreshed with latest source and custom proxy"
+          git push
+          echo "Changes committed and pushed successfully"
+
+      - name: Display final PAC file content
+        run: |
+          echo "Final PAC file content:"
+          tail -5 whitelist.pac
