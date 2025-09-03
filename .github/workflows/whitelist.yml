@@ -1,4 +1,4 @@
-name: Download and Customize PAC File
+name: Download and Customize whitelist PAC File
 
 on:
   workflow_dispatch: # 允许手动触发
