@@ -1,0 +1,58 @@
+name: Download and Customize PAC File
+
+on:
+  workflow_dispatch: # 允许手动触发
+  schedule:
+    - cron: '0 0 * * 0' # 每周日自动更新一次
+  push:
+    paths:
+      - '.github/workflows/update-pac.yml' # 工作流自身更改时触发
+
+jobs:
+  pac-updater:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download source PAC file
+        run: |
+          curl -s -o blacklist.pac https://raw.githubusercontent.com/Kaciras/pac-maker/master/dist/blacklist.pac
+          echo "Downloaded PAC file successfully"
+
+      - name: Modify proxy configuration
+        run: |
+          # 替换代理配置
+          sed -i 's|SOCKS5 localhost:2080|SOCKS5 192.168.116.63:10808|g' blacklist.pac
+          
+          # 验证修改是否成功
+          if grep -q "192.168.116.63:10808" blacklist.pac; then
+            echo "Proxy configuration updated successfully"
+          else
+            echo "Failed to update proxy configuration"
+            exit 1
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 检查是否有更改需要提交
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add blacklist.pac
+            git commit -m "Auto-update: PAC file with custom proxy settings"
+            git push
+            echo "Changes committed and pushed successfully"
+          fi
+
+      - name: Display final PAC file content (for debugging)
+        run: |
+          echo "Final PAC file content:"
+          head -20 blacklist.pac
+          echo "..."
+          grep -n "192.168.116.63" blacklist.pac || echo "Custom proxy not found in file"
