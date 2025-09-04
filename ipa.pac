@@ -5661,7 +5661,7 @@ function FindProxyForURL(url, host) {
     ];
 
     // 定义您的代理服务器地址
-    var proxy = "SOCKS5 192.168.116.63:10808";
+    var proxy = "PROXY 192.168.116.63:10808";
 
     // 检查访问的域名是否在黑名单中
     for (var i = 0; i < blacklist.length; i++) {
