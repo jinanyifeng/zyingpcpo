@@ -1,13 +1,3 @@
-/*
- * Proxy Auto-Configuration file made by pac-maker v4.0.0
- * https://github.com/Kaciras/pac-maker
- *
- * Generated at: 2025-07-03T10:47:41.196Z
- *
- * Learn more about PAC file:
- * https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file
- */
-
 var fallback = "DIRECT";
 
 var proxy = "SOCKS5 192.168.116.63:10808";
