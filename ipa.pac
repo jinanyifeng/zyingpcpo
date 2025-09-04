@@ -2,7 +2,7 @@
 var fallback = "DIRECT";
 
 // SOCKS5 代理节点
-var proxy = "SOCKS5 192.168.116.63:10808";
+var proxy = "PROXY 192.168.116.63:10808";
 
 // 黑名单域名列表（要走代理的域名）
 var blacklist = [
