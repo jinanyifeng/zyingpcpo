@@ -1,5 +1,4 @@
 function FindProxyForURL(url, host) {
-    // 定义黑名单域名（您后期可以自行补充）
     var blacklist = [
         "blogjav.net",
         "zoominfo.com",
@@ -5659,18 +5658,11 @@ function FindProxyForURL(url, host) {
         "unwrap.ai",
         "genspark.ai"
     ];
-
-    // 定义您的代理服务器地址
     var proxy = "PROXY 192.168.116.63:10808";
-
-    // 检查访问的域名是否在黑名单中
     for (var i = 0; i < blacklist.length; i++) {
         if (dnsDomainIs(host, blacklist[i]) || host == blacklist[i]) {
-            // 如果在黑名单中，则使用代理
             return proxy;
         }
     }
-
-    // 默认情况下，所有其他流量直接连接
     return "DIRECT";
 }
