@@ -1,6 +1,7 @@
 function FindProxyForURL(url, host) {
     var blacklist = [
         "blogjav.net",
+        "freedidi.com",
         "zoominfo.com",
         "ptwxz.com",
         "miuipolska.pl",
