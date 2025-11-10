@@ -16,6 +16,7 @@ globalThis.proxies = [
 
 globalThis.rules = {
 	"freedidi.com": 0,
+	"joeyblog.net": 0,
 	"blogjav.net": 0,
 	"zoominfo.com": 0,
 	"ptwxz.com": 0,
