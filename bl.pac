@@ -6395,7 +6395,6 @@ globalThis.rules = {
 	"hacg.red": 0,
 	"hanminzu.org": 0,
 	"hanunyi.com": 0,
-	"hao123.com": 0,
 	"hao123img.com": 0,
 	"happy-vpn.com": 0,
 	"harunyahya.com": 0,
