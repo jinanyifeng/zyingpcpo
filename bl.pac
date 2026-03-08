@@ -1,13 +1,3 @@
-/*
- * Proxy Auto-Configuration file made by pac-maker v4.0.0
- * https://github.com/Kaciras/pac-maker
- *
- * Generated at: 2025-09-16T01:52:18.351Z
- *
- * Learn more about PAC file:
- * https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file
- */
-
 globalThis.fallback = "DIRECT";
 
 globalThis.proxies = [
@@ -6533,7 +6523,6 @@ globalThis.rules = {
 	"iownyour.biz": 0,
 	"ipalter.com": 0,
 	"iphonehacks.com": 0,
-	"iqiyi.com": 0,
 	"irib.ir": 0,
 	"i-scmp.com": 0,
 	"istarshine.com": 0,
