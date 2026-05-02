@@ -13,6 +13,7 @@ globalThis.rules = {
 	"www.xn--10vr61a3xc5x3b.com": 0,
 	"www.xn--74qz10cqsltibh40akss.com": 0,
 	"www.xn--vcsx1ip8b8w4i.com": 0,
+	"www.xn--dpqv20e8ug6r8a.com": 0,
 	"joeyblog.net": 0,
 	"blogjav.net": 0,
 	"zoominfo.com": 0,
