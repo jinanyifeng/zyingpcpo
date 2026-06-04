@@ -7,7 +7,10 @@ globalThis.proxies = [
 globalThis.rules = {
 	"freedidi.com": 0,
 	"www.xn--wcv59z.com": 0,
+	"rutor.info": 0,
 	"www.xn--kivn76b41nnhi.com": 0,
+	"www.529072.xyz": 0,
+	"www.529073.xyz": 0,
 	"www.xn--rhqp87dfoiv9a830g.com": 0,
 	"www.xn--74qy8dk4drvg29x.com": 0,
 	"www.xn--10vr61a3xc5x3b.com": 0,
