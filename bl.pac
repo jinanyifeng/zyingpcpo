@@ -11,7 +11,7 @@ globalThis.rules = {
 	"www.xn--kivn76b41nnhi.com": 0,
 	"www.529072.xyz": 0,
 	"www.529073.xyz": 0,
-	"www.529073.xyz": 0,
+	"www.529074.xyz": 0,
 	"mjzzdmgw.529074.xyz": 0,
 	"wtiglknx.529073.xyz": 0,
 	"www.xn--rhqp87dfoiv9a830g.com": 0,
