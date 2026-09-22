@@ -7,6 +7,7 @@ globalThis.proxies = [
 globalThis.rules = {
 	"freedidi.com": 0,
 	"update.googleapis.com": 0,
+	"www.qichiyu.com": 0,
 	"qichiyu.com": 0,
 	"www.xn--wcv59z.com": 0,
 	"raw.githubusercontent.com": 0,
