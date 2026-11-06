@@ -1,52 +1,162 @@
+
 name: Download and Customize blacklist PAC File
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0' 
+    - cron: '0 0 * * 0'
   push:
     paths:
-      - '.github/workflows/update-pac.yml' 
+      - '.github/workflows/update-pac.yml'
+
+permissions:
+  contents: write
 
 jobs:
   pac-updater:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0 
+          fetch-depth: 0
 
       - name: Download source PAC file
         run: |
-          curl -s -o blacklist.pac https://raw.githubusercontent.com/Kaciras/pac-maker/master/dist/blacklist.pac
+          set -e
+          curl -fsSL --retry 3 --retry-delay 3 \
+            -o blacklist.pac \
+            https://raw.githubusercontent.com/Kaciras/pac-maker/master/dist/blacklist.pac
+
+          test -s blacklist.pac
           echo "Downloaded PAC file successfully"
 
-      - name: Modify proxy configuration
+      - name: Modify proxy configuration and add custom domains
         run: |
+          set -e
+
+          # 1. 替换代理服务器地址
           sed -i 's|SOCKS5 localhost:2080|SOCKS5 192.168.116.63:10808|g' blacklist.pac
-          
-          if grep -q "192.168.116.63:10808" blacklist.pac; then
+
+          if grep -qF "192.168.116.63:10808" blacklist.pac; then
             echo "Proxy configuration updated successfully"
           else
             echo "Failed to update proxy configuration"
             exit 1
           fi
 
-      - name: Force commit changes
+          # 2. 添加自定义代理域名
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          file = Path("blacklist.pac")
+          content = file.read_text(encoding="utf-8")
+
+          # 自定义规则标记
+          start_marker = "    // ===== CUSTOM PROXY RULES START ====="
+          end_marker = "    // ===== CUSTOM PROXY RULES END ====="
+
+          # 自定义代理域名
+          custom_domains = [
+              "freedidi.com",
+              "update.googleapis.com",
+              "www.qichiyu.com",
+              "wp.gxnas.com",
+              "qichiyu.com",
+              "www.xn--wcv59z.com",
+              "raw.githubusercontent.com",
+          ]
+
+          # 删除上一次自动添加的规则，防止重复
+          pattern = re.escape(start_marker) + r".*?" + re.escape(end_marker)
+          content = re.sub(pattern, "", content, flags=re.DOTALL)
+
+          # 生成自定义规则
+          rules = "\n".join(
+              f'    "{domain}": 0,'
+              for domain in custom_domains
+          )
+
+          custom_block = (
+              start_marker + "\n"
+              + rules + "\n"
+              + end_marker + "\n"
+          )
+
+          # 插入 globalThis.rules 对象开头
+          match = re.search(
+              r'globalThis\.rules\s*=\s*\{',
+              content
+          )
+
+          if not match:
+              raise SystemExit("ERROR: Cannot find globalThis.rules")
+
+          insert_position = match.end()
+
+          content = (
+              content[:insert_position]
+              + "\n"
+              + custom_block
+              + content[insert_position:]
+          )
+
+          # 检查所有自定义域名
+          for domain in custom_domains:
+              if f'"{domain}": 0' not in content:
+                  raise SystemExit(f"ERROR: Missing domain: {domain}")
+
+          file.write_text(content, encoding="utf-8")
+
+          print("Custom proxy domains added successfully:")
+          for domain in custom_domains:
+              print(f"  {domain}")
+          PY
+
+      - name: Validate PAC file
         run: |
+          set -e
+
+          # 检查自定义规则数量
+          count=$(grep -cE '"(freedidi\.com|update\.googleapis\.com|www\.qichiyu\.com|wp\.gxnas\.com|qichiyu\.com|www\.xn--wcv59z\.com|raw\.githubusercontent\.com)": 0,' blacklist.pac)
+
+          if [ "$count" -ne 7 ]; then
+            echo "ERROR: Custom domain validation failed: $count/7"
+            exit 1
+          fi
+
+          # 检查代理地址
+          grep -qF 'SOCKS5 192.168.116.63:10808' blacklist.pac
+
+          echo "PAC validation successful: 7 custom domains"
+
+      - name: Commit and push changes
+        run: |
+          set -e
+
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
+
           echo "// Last updated: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> blacklist.pac
-          
+
           git add blacklist.pac
-          git commit -m "Auto-update: PAC file refreshed with latest source and custom proxy"
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Auto-update: PAC file refreshed with custom proxy rules"
           git push
+
           echo "Changes committed and pushed successfully"
 
       - name: Display final PAC file content
         run: |
-          echo "Final PAC file content:"
+          echo "===== Custom proxy rules ====="
+          sed -n '/CUSTOM PROXY RULES START/,/CUSTOM PROXY RULES END/p' blacklist.pac
+
+          echo "===== Final PAC file ending ====="
           tail -5 blacklist.pac
