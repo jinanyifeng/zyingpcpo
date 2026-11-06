@@ -1,5 +1,5 @@
 
-name: Download and Customize blacklist PAC File
+name: Download and Customize bd PAC File
 
 on:
   workflow_dispatch:
