@@ -11,7 +11,7 @@
 globalThis.fallback = "DIRECT";
 
 globalThis.proxies = [
-	"SOCKS5 bd.127.0.0.1:10808"
+	"SOCKS5 127.0.0.1:10808"
 ];
 
 globalThis.rules = {
@@ -4501,4 +4501,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-06T02:13:57Z
+// Last updated: 2026-11-06T02:18:14Z
