@@ -27,7 +27,7 @@ jobs:
           set -e
           curl -fsSL --retry 3 --retry-delay 3 \
             -o bd.pac \
-            https://raw.githubusercontent.com/Kaciras/pac-maker/master/dist/bd.pac
+            https://raw.githubusercontent.com/Kaciras/pac-maker/master/dist/blacklist.pac
 
           test -s bd.pac
           echo "Downloaded PAC file successfully"
