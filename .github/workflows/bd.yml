@@ -37,9 +37,9 @@ jobs:
           set -e
 
           # 1. 替换代理服务器地址
-          sed -i 's|SOCKS5 localhost:2080|SOCKS5 bd.127.0.0.1:10808|g' bd.pac
+          sed -i 's|SOCKS5 localhost:2080|SOCKS5 127.0.0.1:10808|g' bd.pac
 
-          if grep -qF "bd.127.0.0.1:10808" bd.pac; then
+          if grep -qF "127.0.0.1:10808" bd.pac; then
             echo "Proxy configuration updated successfully"
           else
             echo "Failed to update proxy configuration"
@@ -144,7 +144,7 @@ jobs:
           fi
 
           # 检查代理地址
-          grep -qF 'SOCKS5 bd.127.0.0.1:10808' bd.pac
+          grep -qF 'SOCKS5 127.0.0.1:10808' bd.pac
 
           echo "PAC validation successful: 7 custom domains"
 
