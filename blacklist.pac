@@ -15,6 +15,16 @@ globalThis.proxies = [
 ];
 
 globalThis.rules = {
+    // ===== CUSTOM PROXY RULES START =====
+    "freedidi.com": 0,
+    "update.googleapis.com": 0,
+    "www.qichiyu.com": 0,
+    "wp.gxnas.com": 0,
+    "qichiyu.com": 0,
+    "www.xn--wcv59z.com": 0,
+    "raw.githubusercontent.com": 0,
+    // ===== CUSTOM PROXY RULES END =====
+
 	"blogjav.net": 0,
 	"zoominfo.com": 0,
 	"ptwxz.com": 0,
@@ -4475,4 +4485,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-01T04:37:08Z
+// Last updated: 2026-11-06T01:40:29Z
