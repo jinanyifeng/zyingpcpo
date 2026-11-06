@@ -23,6 +23,22 @@ globalThis.rules = {
     "qichiyu.com": 0,
     "www.xn--wcv59z.com": 0,
     "raw.githubusercontent.com": 0,
+    "rutor.info": 0,
+    "www.xn--kivn76b41nnhi.com": 0,
+    "www.529072.xyz": 0,
+    "www.529073.xyz": 0,
+    "www.529074.xyz": 0,
+    "mjzzdmgw.529074.xyz": 0,
+    "wtiglknx.529073.xyz": 0,
+    "www.xn--rhqp87dfoiv9a830g.com": 0,
+    "www.xn--74qy8dk4drvg29x.com": 0,
+    "www.xn--10vr61a3xc5x3b.com": 0,
+    "www.xn--74qz10cqsltibh40akss.com": 0,
+    "www.xn--vcsx1ip8b8w4i.com": 0,
+    "www.xn--dpqv20e8ug6r8a.com": 0,
+    "v4.freeterabox.com": 0,
+    "www.hgeme.com": 0,
+    "joeyblog.net": 0,
     // ===== CUSTOM PROXY RULES END =====
 
 	"blogjav.net": 0,
@@ -4485,4 +4501,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-06T01:41:23Z
+// Last updated: 2026-11-06T01:56:31Z
