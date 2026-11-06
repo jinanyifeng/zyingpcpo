@@ -61,12 +61,29 @@ jobs:
           # 自定义代理域名
           custom_domains = [
               "freedidi.com",
+              "freedidi.com",
               "update.googleapis.com",
               "www.qichiyu.com",
               "wp.gxnas.com",
               "qichiyu.com",
               "www.xn--wcv59z.com",
               "raw.githubusercontent.com",
+              "rutor.info",
+              "www.xn--kivn76b41nnhi.com",
+              "www.529072.xyz",
+              "www.529073.xyz",
+              "www.529074.xyz",
+              "mjzzdmgw.529074.xyz",
+              "wtiglknx.529073.xyz",
+              "www.xn--rhqp87dfoiv9a830g.com",
+              "www.xn--74qy8dk4drvg29x.com",
+              "www.xn--10vr61a3xc5x3b.com",
+              "www.xn--74qz10cqsltibh40akss.com",
+              "www.xn--vcsx1ip8b8w4i.com",
+              "www.xn--dpqv20e8ug6r8a.com",
+              "v4.freeterabox.com",
+              "www.hgeme.com",
+              "joeyblog.net",
           ]
 
           # 删除上一次自动添加的规则，防止重复
