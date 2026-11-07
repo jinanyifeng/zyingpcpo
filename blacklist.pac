@@ -37,6 +37,7 @@ globalThis.rules = {
     "www.xn--vcsx1ip8b8w4i.com": 0,
     "www.xn--dpqv20e8ug6r8a.com": 0,
     "v4.freeterabox.com": 0,
+    "aniiland.wintira.win": 0,
     "www.hgeme.com": 0,
     "joeyblog.net": 0,
     // ===== CUSTOM PROXY RULES END =====
@@ -4501,4 +4502,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-06T01:56:31Z
+// Last updated: 2026-11-07T17:35:01Z
