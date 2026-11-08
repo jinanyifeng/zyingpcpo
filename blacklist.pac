@@ -32,9 +32,11 @@ globalThis.rules = {
     "wtiglknx.529073.xyz": 0,
     "www.xn--rhqp87dfoiv9a830g.com": 0,
     "www.gpsoft.com.au": 0,
+    "cdn.gpsoft.com.au": 0,
     "www.xn--74qy8dk4drvg29x.com": 0,
     "www.xn--10vr61a3xc5x3b.com": 0,
     "www.xn--74qz10cqsltibh40akss.com": 0,
+    "gpsoft.com.au": 0,
     "www.xn--vcsx1ip8b8w4i.com": 0,
     "www.xn--dpqv20e8ug6r8a.com": 0,
     "v4.freeterabox.com": 0,
@@ -4503,4 +4505,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-08T02:45:37Z
+// Last updated: 2026-11-08T03:05:30Z
