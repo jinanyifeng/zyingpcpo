@@ -33,6 +33,7 @@ globalThis.rules = {
     "www.xn--rhqp87dfoiv9a830g.com": 0,
     "dashboard.instabox.sh": 0,
     "www.gpsoft.com.au": 0,
+    "instabox.sh": 0,
     "cdn.gpsoft.com.au": 0,
     "www.xn--74qy8dk4drvg29x.com": 0,
     "www.xn--10vr61a3xc5x3b.com": 0,
@@ -4506,4 +4507,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-12T17:30:23Z
+// Last updated: 2026-11-12T18:50:58Z
