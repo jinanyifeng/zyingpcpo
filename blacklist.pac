@@ -34,6 +34,7 @@ globalThis.rules = {
     "dashboard.instabox.sh": 0,
     "www.gpsoft.com.au": 0,
     "instabox.sh": 0,
+    "urlebird.com": 0,
     "cdn.gpsoft.com.au": 0,
     "www.xn--74qy8dk4drvg29x.com": 0,
     "www.xn--10vr61a3xc5x3b.com": 0,
@@ -4507,4 +4508,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-18T22:27:14Z
+// Last updated: 2026-11-19T07:03:42Z
