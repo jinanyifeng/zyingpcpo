@@ -21,6 +21,7 @@ globalThis.rules = {
     "www.qichiyu.com": 0,
     "wp.gxnas.com": 0,
     "qichiyu.com": 0,
+    "xyg688.com": 0,
     "www.xn--wcv59z.com": 0,
     "raw.githubusercontent.com": 0,
     "rutor.info": 0,
@@ -4509,4 +4510,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-21T15:59:22Z
+// Last updated: 2026-11-21T17:57:21Z
