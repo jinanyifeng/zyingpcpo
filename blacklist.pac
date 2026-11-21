@@ -27,6 +27,7 @@ globalThis.rules = {
     "www.xn--kivn76b41nnhi.com": 0,
     "www.529072.xyz": 0,
     "www.529073.xyz": 0,
+    "gamer520.com": 0,
     "www.529074.xyz": 0,
     "mjzzdmgw.529074.xyz": 0,
     "wtiglknx.529073.xyz": 0,
@@ -4508,4 +4509,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-20T22:05:49Z
+// Last updated: 2026-11-21T11:00:10Z
