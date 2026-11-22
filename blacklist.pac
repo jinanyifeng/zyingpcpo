@@ -31,6 +31,7 @@ globalThis.rules = {
     "gamer520.com": 0,
     "www.529074.xyz": 0,
     "mjzzdmgw.529074.xyz": 0,
+    "d.gxnas.com": 0,
     "wtiglknx.529073.xyz": 0,
     "www.xn--rhqp87dfoiv9a830g.com": 0,
     "dashboard.instabox.sh": 0,
@@ -4510,4 +4511,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-21T20:44:09Z
+// Last updated: 2026-11-22T05:31:10Z
