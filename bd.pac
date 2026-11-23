@@ -4501,4 +4501,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-22T21:29:46Z
+// Last updated: 2026-11-23T19:52:45Z
