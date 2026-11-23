@@ -40,6 +40,7 @@ globalThis.rules = {
     "urlebird.com": 0,
     "cdn.gpsoft.com.au": 0,
     "www.xn--74qy8dk4drvg29x.com": 0,
+    "cloudflare.com": 0,
     "www.xn--10vr61a3xc5x3b.com": 0,
     "www.xn--74qz10cqsltibh40akss.com": 0,
     "gpsoft.com.au": 0,
@@ -4511,4 +4512,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-22T20:55:06Z
+// Last updated: 2026-11-23T09:16:42Z
