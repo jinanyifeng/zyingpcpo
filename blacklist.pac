@@ -26,6 +26,7 @@ globalThis.rules = {
     "raw.githubusercontent.com": 0,
     "rutor.info": 0,
     "www.xn--kivn76b41nnhi.com": 0,
+    "dl.google.com": 0,
     "www.529072.xyz": 0,
     "www.529073.xyz": 0,
     "gamer520.com": 0,
@@ -4517,4 +4518,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-24T09:51:05Z
+// Last updated: 2026-11-24T19:15:08Z
