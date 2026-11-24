@@ -30,7 +30,12 @@ globalThis.rules = {
     "www.529073.xyz": 0,
     "gamer520.com": 0,
     "www.529074.xyz": 0,
+    "jkcqh3u1.529075.xyz": 0,
+    "dgrgzhed.529076.xyz": 0,
     "mjzzdmgw.529074.xyz": 0,
+    "529075.xyz": 0,
+    "529074.xyz": 0,
+    "529076.xyz": 0,
     "d.gxnas.com": 0,
     "wtiglknx.529073.xyz": 0,
     "www.xn--rhqp87dfoiv9a830g.com": 0,
@@ -4512,4 +4517,4 @@ function FindProxyForURL(url, host) {
 
 	return globalThis.fallback;
 }
-// Last updated: 2026-11-24T01:59:15Z
+// Last updated: 2026-11-24T09:51:05Z
